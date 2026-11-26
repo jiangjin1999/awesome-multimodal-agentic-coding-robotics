@@ -4,7 +4,7 @@ name: Sync from upstream
 # This workflow copies that folder here and pins the footer's upstream@main link to the commit it copied.
 on:
   schedule:
-    - cron: '23 */6 * * *'
+    - cron: '23 * * * *'
   workflow_dispatch:
 
 permissions:
