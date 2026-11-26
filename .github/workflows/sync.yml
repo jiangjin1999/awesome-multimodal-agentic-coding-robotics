@@ -1,0 +1,57 @@
+name: Sync from upstream
+
+# Every other file in this repository is generated upstream into robotics/ by scripts/build_readme.py.
+# This workflow copies that folder here and pins the footer's upstream@main link to the commit it copied.
+on:
+  schedule:
+    - cron: '23 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync
+  cancel-in-progress: false
+
+env:
+  UPSTREAM: jiangjin1999/awesome-multimodal-agentic-coding
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check out upstream main
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.UPSTREAM }}
+          ref: main
+          path: .upstream
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: robotics
+          persist-credentials: false
+
+      - name: Copy robotics/ and commit any change
+        run: |
+          set -euo pipefail
+          trap 'rm -rf .upstream' EXIT
+          if [ ! -d .upstream/robotics ]; then
+            echo "::warning::Upstream main has no robotics/ folder yet; nothing to sync."
+            exit 0
+          fi
+          sha=$(git -C .upstream log -1 --format=%H -- robotics)
+          short=${sha:0:7}
+          cp .upstream/robotics/* .
+          sed -i "s|href=\"https://github.com/${UPSTREAM}/tree/main\"><code>upstream@main</code>|href=\"https://github.com/${UPSTREAM}/commit/${sha}\"><code>upstream@${short}</code>|" README*.md
+          git add -A -- . ':!.upstream'
+          if git diff --cached --quiet; then
+            echo "Already in sync with upstream@${short}."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898208+github-actions[bot]@users.noreply.github.com'
+          git commit -m "Sync from upstream @ ${short}" -m "https://github.com/${UPSTREAM}/commit/${sha}"
+          git push
