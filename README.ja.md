@@ -5,8 +5,8 @@
 # Awesome Multimodal Agentic Coding ⎇ Robotics
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/jiangjin1999/awesome-multimodal-agentic-coding/main/assets/robotics/robotics-map-ja-dark.svg">
-  <img src="https://raw.githubusercontent.com/jiangjin1999/awesome-multimodal-agentic-coding/main/assets/robotics/robotics-map-ja-light.svg" alt="ロボティクス・ブランチの分類：一つの Real2Sim2Real ループ。マルチモーダル・コーディングエージェント：コードを書く → 実機やシミュレータで実行 → 結果を見る → 修正する。1 行動（実世界）：3.1 身体性ハーネス、2.6 行動モデル × ロボット操作。2 構築（シミュレーション）：3.2 シミュレータ構築、3.3 シミュレータ品質評価。3 学習（シミュレーション）：3.4 データ、3.5 学習と能力向上。4 応用（実世界）：3.6 物理応用と実験。" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/jiangjin1999/awesome-multimodal-agentic-coding/main/assets/robotics/hero/hero-dark.png">
+  <img src="https://raw.githubusercontent.com/jiangjin1999/awesome-multimodal-agentic-coding/main/assets/robotics/hero/hero-light.png" alt="Multimodal Agentic Coding, robotics branch. A Real2Sim2Real loop around a real robot arm and its simulated wireframe twin, with a coding agent between the two worlds that sends code and observes results. The loop runs Act (3.1 Embodied harness, 2.6 Action models) in the real world, Build (3.2 Sim construction, 3.3 Sim evaluation) in simulation, Learn (3.4 Data, 3.5 Training) in simulation, and Apply (3.6 Physical applications) in the real world." width="100%">
 </picture>
 
 ロボットのためのマルチモーダル・コーディングエージェント：コードを書いて行動し、練習用のシミュレータを構築し、観察した結果からシミュレーションと現実の中で改善していきます。
@@ -34,6 +34,11 @@ Switched to a new branch 'robotics'
 <a id="contents"></a>
 
 ## 分類
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/jiangjin1999/awesome-multimodal-agentic-coding/main/assets/robotics/robotics-map-ja-dark.svg">
+  <img src="https://raw.githubusercontent.com/jiangjin1999/awesome-multimodal-agentic-coding/main/assets/robotics/robotics-map-ja-light.svg" alt="ロボティクス・ブランチの分類：一つの Real2Sim2Real ループ。マルチモーダル・コーディングエージェント：コードを書く → 実機やシミュレータで実行 → 結果を見る → 修正する。1 行動（実世界）：3.1 身体性ハーネス、2.6 行動モデル × ロボット操作。2 構築（シミュレーション）：3.2 シミュレータ構築、3.3 シミュレータ品質評価。3 学習（シミュレーション）：3.4 データ、3.5 学習と能力向上。4 応用（実世界）：3.6 物理応用と実験。" width="100%">
+</picture>
 
 各行は上図のループの一ステップです。節番号は上流と同じで、括弧内は項目数です。
 
@@ -2435,4 +2440,4 @@ P0 は前提となる関門で、合否だけを判定します。ほかの各�
 
 Liangcai Gao、Wenshan Wu、Haolin Yang、Yu Chen の皆様に感謝します。
 
-<p align="center"><sub>⎇ 同期元 <a href="https://github.com/jiangjin1999/awesome-multimodal-agentic-coding/commit/4346eaf75815f7176aadcca763811db3fd862373"><code>upstream@4346eaf</code></a> · 2026-11-27</sub></p>
+<p align="center"><sub>⎇ 同期元 <a href="https://github.com/jiangjin1999/awesome-multimodal-agentic-coding/commit/15505f369f006f0d7aa7b0f7dbeff85d0a8809b0"><code>upstream@15505f3</code></a> · 2026-11-27</sub></p>
